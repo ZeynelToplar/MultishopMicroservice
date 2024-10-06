@@ -1,0 +1,52 @@
+﻿@model List<ResultCategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+        <!--begin::Row-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Kategori İşlemleri</h3>
+                    </div> <!-- /.card-header -->
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kategori Adı</th>
+                                    <th style="width: 100px">Güncelle</th>
+                                    <th style="width: 100px">Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model)
+                                {
+                                    count++;
+                                    <tr class="align-middle">
+                                        <td>@count</td>
+                                        <td>@item.CategoryName</td>
+                                        <td><a href="/Admin/Category/UpdateCategory/@item.CategoryId" class=" btn btn-success w-100">Güncelle</a></td>
+                                        <td><a href="/Admin/Category/DeleteCategory/@item.CategoryId" class=" btn btn-danger w-100">Sil</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="mt-4">
+                            <a href="/Admin/Category/CreateCategory/" class=" btn btn-primary">Yeni Kategori Ekle</a>
+                        </div>
+                    </div> <!-- /.card-body -->
+                </div> <!-- /.card -->
+            </div> <!-- /.col -->
+        </div>
+        <!--end::Row-->
+    </div>
+    <!--end::Container-->
+</div>

@@ -1,0 +1,48 @@
+﻿@model CreateProductDto
+@{
+    ViewData["Title"] = "CreateProduct";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+        <!--begin::Row-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3 class="card-title">Ürün Ekleme Sayfası</h3>
+                    </div> <!-- /.card-header -->
+                    <div class="card-body">
+                        <form method="post">
+                            <label>Ürün Adı</label>
+                            <div class="mt-2"></div>
+                            <input type="text" class="form-control" asp-for="ProductName" />
+                            <div class="mb-2"></div>
+                            <label>Fiyat</label>
+                            <div class="mt-2"></div>
+                            <input type="text" class="form-control" asp-for="ProductPrice" />
+                            <div class="mb-2"></div>
+                            <label>Görsel URL</label>
+                            <div class="mt-2"></div>
+                            <input type="text" class="form-control" asp-for="ProductImageUrl" />
+                            <div class="mb-2"></div>
+                            <label>Kategoriler</label>
+                            <div class="mt-2"></div>
+                            @Html.DropDownListFor(c => c.CategoryId, (List<SelectListItem>)ViewBag.categoryValues, new {@class = "form-control"})
+                            <div class="mb-2"></div>
+                            <label>Açıklama</label>
+                            <div class="mt-2"></div>
+                            <textarea rows="5" class="form-control" asp-for="ProductDescription"></textarea>
+                            <div class="mb-2"></div>                            <button class="btn btn-primary">Ekle</button>
+                        </form>
+                    </div> <!-- /.card-body -->
+                </div> <!-- /.card -->
+            </div> <!-- /.col -->
+        </div>
+        <!--end::Row-->
+    </div>
+    <!--end::Container-->
+</div>
+
